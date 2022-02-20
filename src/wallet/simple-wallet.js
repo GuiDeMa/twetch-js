@@ -72,7 +72,7 @@ class SimpleWallet extends BaseWallet {
 	get rpc() {
 		return {
 			mainnet: 'https://api.bitindex.network/api',
-			testnet: 'https://api.bitindex.network/api/v3/test'
+			testnet: 'https://api.whatsonchain.com/v1/bsv/test/'
 		}[this.network];
 	}
 
@@ -84,7 +84,7 @@ class SimpleWallet extends BaseWallet {
 		//return response.data;
 
 		let { data: utxos } = await axios.get(
-			`https://api.whatsonchain.com/v1/bsv/main/address/${address}/unspent`
+			`https://api.whatsonchain.com/v1/bsv/test/address/${address}/unspent`
 		);
 		utxos = utxos
 			.sort((a, b) => a.value - b.value)
